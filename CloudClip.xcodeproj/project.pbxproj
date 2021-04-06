@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,11 @@
 		DC365E1E261BE71400633568 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E1D261BE71400633568 /* ContentView.swift */; };
 		DC365E20261BE71600633568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC365E1F261BE71600633568 /* Assets.xcassets */; };
 		DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC365E22261BE71600633568 /* Preview Assets.xcassets */; };
-		DC365E26261BE71600633568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC365E24261BE71600633568 /* Main.storyboard */; };
+		DC365E31261BE90800633568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC365E30261BE90800633568 /* Main.storyboard */; };
+		DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E37261BF6DB00633568 /* ImageToText.swift */; };
+		DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E3A261BFCB900633568 /* LocateFile.swift */; };
+		DC365E3F261C020D00633568 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = DC365E3E261C020D00633568 /* KeyboardShortcuts */; };
+		DC365E42261C021800633568 /* ShortcutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E41261C021800633568 /* ShortcutConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,9 +24,12 @@
 		DC365E1D261BE71400633568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC365E1F261BE71600633568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC365E22261BE71600633568 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DC365E25261BE71600633568 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC365E27261BE71600633568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC365E28261BE71600633568 /* CloudClip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudClip.entitlements; sourceTree = "<group>"; };
+		DC365E30261BE90800633568 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DC365E37261BF6DB00633568 /* ImageToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToText.swift; sourceTree = "<group>"; };
+		DC365E3A261BFCB900633568 /* LocateFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocateFile.swift; sourceTree = "<group>"; };
+		DC365E41261C021800633568 /* ShortcutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC365E3F261C020D00633568 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +64,12 @@
 			isa = PBXGroup;
 			children = (
 				DC365E1B261BE71400633568 /* AppDelegate.swift */,
+				DC365E37261BF6DB00633568 /* ImageToText.swift */,
+				DC365E3A261BFCB900633568 /* LocateFile.swift */,
+				DC365E41261C021800633568 /* ShortcutConstants.swift */,
 				DC365E1D261BE71400633568 /* ContentView.swift */,
 				DC365E1F261BE71600633568 /* Assets.xcassets */,
-				DC365E24261BE71600633568 /* Main.storyboard */,
+				DC365E30261BE90800633568 /* Main.storyboard */,
 				DC365E27261BE71600633568 /* Info.plist */,
 				DC365E28261BE71600633568 /* CloudClip.entitlements */,
 				DC365E21261BE71600633568 /* Preview Content */,
@@ -90,6 +101,9 @@
 			dependencies = (
 			);
 			name = CloudClip;
+			packageProductDependencies = (
+				DC365E3E261C020D00633568 /* KeyboardShortcuts */,
+			);
 			productName = CloudClip;
 			productReference = DC365E18261BE71400633568 /* CloudClip.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +131,9 @@
 				Base,
 			);
 			mainGroup = DC365E0F261BE71400633568;
+			packageReferences = (
+				DC365E3D261C020D00633568 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
 			productRefGroup = DC365E19261BE71400633568 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,7 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC365E26261BE71600633568 /* Main.storyboard in Resources */,
+				DC365E31261BE90800633568 /* Main.storyboard in Resources */,
 				DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */,
 				DC365E20261BE71600633568 /* Assets.xcassets in Resources */,
 			);
@@ -145,22 +162,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC365E1E261BE71400633568 /* ContentView.swift in Sources */,
+				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
+				DC365E42261C021800633568 /* ShortcutConstants.swift in Sources */,
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,
+				DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DC365E24261BE71600633568 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC365E25261BE71600633568 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DC365E29261BE71600633568 /* Debug */ = {
@@ -348,6 +357,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC365E3D261C020D00633568 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC365E3E261C020D00633568 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC365E3D261C020D00633568 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC365E10261BE71400633568 /* Project object */;
 }
