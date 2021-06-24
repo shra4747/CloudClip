@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC05BEB32671B672003FF3DD /* ScreenshotWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05BEB22671B672003FF3DD /* ScreenshotWorkflow.swift */; };
-		DC05BEB82671B7B3003FF3DD /* MenuItemWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC05BEB72671B7B3003FF3DD /* MenuItemWorkflow.swift */; };
 		DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E1B261BE71400633568 /* AppDelegate.swift */; };
 		DC365E20261BE71600633568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC365E1F261BE71600633568 /* Assets.xcassets */; };
 		DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC365E22261BE71600633568 /* Preview Assets.xcassets */; };
@@ -27,8 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DC05BEB22671B672003FF3DD /* ScreenshotWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotWorkflow.swift; sourceTree = "<group>"; };
-		DC05BEB72671B7B3003FF3DD /* MenuItemWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemWorkflow.swift; sourceTree = "<group>"; };
 		DC365E18261BE71400633568 /* CloudClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC365E1B261BE71400633568 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC365E1F261BE71600633568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,8 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				DC365E1B261BE71400633568 /* AppDelegate.swift */,
-				DC05BEB22671B672003FF3DD /* ScreenshotWorkflow.swift */,
-				DC05BEB72671B7B3003FF3DD /* MenuItemWorkflow.swift */,
 				DC05BEB12671B608003FF3DD /* ProviderSignIns */,
 				DC365E48261C947800633568 /* Helpers */,
 				DC365E49261C948500633568 /* Views */,
@@ -213,13 +207,11 @@
 			files = (
 				DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */,
 				DC365E4D261C94B300633568 /* SessionView.swift in Sources */,
-				DC05BEB82671B7B3003FF3DD /* MenuItemWorkflow.swift in Sources */,
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
 				DC57891226222C4C00293E86 /* SessionStart.swift in Sources */,
 				DC53D796261E97CC0039A4FF /* BoxSignIn.swift in Sources */,
 				DC365E42261C021800633568 /* Constants.swift in Sources */,
-				DC05BEB32671B672003FF3DD /* ScreenshotWorkflow.swift in Sources */,
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,
 				DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */,
 			);
@@ -349,7 +341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CloudClip/CloudClip.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";
@@ -374,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CloudClip/CloudClip.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";

@@ -32,41 +32,28 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>CFBundleURLTypes</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.36403907164-v5jolji62kcdccjkkeiv7qg141liitom</string>
+				<string>db-jbzmsjufj2ntft3</string>
 			</array>
+			<key>CFBundleURLName</key>
+			<string></string>
 		</dict>
 	</array>
+	<key>LSUIElement</key>
+	<true/>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
-	<key>LSUIElement</key>
-	<true/>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-    <key>LSApplicationQueriesSchemes</key>
-        <array>
-            <string>dbapi-8-emm</string>
-            <string>dbapi-2</string>
-        </array>
-        <key>CFBundleURLTypes</key>
-            <array>
-                <dict>
-                    <key>CFBundleURLSchemes</key>
-                    <array>
-                        <string>db-jbzmsjufj2ntft3</string>
-                    </array>
-                    <key>CFBundleURLName</key>
-                    <string></string>
-                </dict>
-            </array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>dbapi-8-emm</string>
+		<string>dbapi-2</string>
+	</array>
 </dict>
 </plist>

@@ -13,7 +13,7 @@ import PythonKit
 
 class MenuItemWorkflow {
     func launchMenuItem() {
-        let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+        let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
         if let button = statusItem.button {
           button.image = NSImage(named:NSImage.Name("status"))
@@ -37,11 +37,11 @@ class MenuItemWorkflow {
         endSessionItem.title = "End Session 🛑"
         endSessionItem.action = #selector(ScreenshotWorkflow.endSession(_:))
         menu.addItem(endSessionItem)
-        
-        statusItem.menu = menu
-        
+                
         menu.addItem(NSMenuItem.separator())
         
         menu.addItem(NSMenuItem(title: "Quit ☠️", action: #selector(NSApp.terminate(_:)), keyEquivalent: "q"))
+        
+        statusItem.menu = menu
     }
 }

@@ -64,46 +64,52 @@ class ScreenshotWorkflow {
 
         let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
         
+        
         var fileName = ""
+        
         ImageToText().textRecognition(image: image, completion: { text in
             fileName = text
         })
-
-        var resourceValues = URLResourceValues()
-        resourceValues.name = "\(fileName).jpg"
-        try? fileDestination.setResourceValues(resourceValues)
         
-        let fl = "\(Constants.userHomeDirectory)Library/Application Support/CloudClip/\(fileName).jpg"
-        
-        
-        
-        let sessionState = UserDefaults.standard.value(forKey: "inSession")
-        
-        if let inSession = sessionState as? Bool  {
-            if inSession == true {
-                // In session
-                print("You are in a session.")
-                let id = UserDefaults.standard.value(forKey: "sessionID") as! String
-                let sys = Python.import("sys")
-                sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-                let example = Python.import("example")
-                example.uploadToSession("\(id)", fl, "\(fileName).jpg")
+        if fileName.count == 0 {
+            print("Returning an not uploading!")
+            return
+        }
+        else {
+            var resourceValues = URLResourceValues()
+            resourceValues.name = "\(fileName).jpg"
+            try? fileDestination.setResourceValues(resourceValues)
+            
+            let fl = "\(Constants.userHomeDirectory)Library/Application Support/CloudClip/\(fileName).jpg"
+            
+            let sessionState = UserDefaults.standard.value(forKey: "inSession")
+            
+            if let inSession = sessionState as? Bool  {
+                if inSession == true {
+                    // In session
+                    print("You are in a session.")
+                    let id = UserDefaults.standard.value(forKey: "sessionID") as! String
+                    let sys = Python.import("sys")
+                    sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
+                    let example = Python.import("example")
+                    example.uploadToSession("\(id)", fl, "\(fileName).jpg")
+                }
+                else {
+                    // Not in session
+                    print("You are not in a session.")
+                    let sys = Python.import("sys")
+                    sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
+                    let example = Python.import("example")
+                    example.upload(fl, "\(fileName).jpg")
+                }
             }
             else {
-                // Not in session
-                print("You are not in a session.")
+                print("Error loading session state. ")
                 let sys = Python.import("sys")
                 sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
                 let example = Python.import("example")
                 example.upload(fl, "\(fileName).jpg")
             }
-        }
-        else {
-            print("Error loading session state. ")
-            let sys = Python.import("sys")
-            sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-            let example = Python.import("example")
-            example.upload(fl, "\(fileName).jpg")
         }
     }
 }

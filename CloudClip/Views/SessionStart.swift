@@ -15,6 +15,7 @@ struct SessionStart: View {
             TextField("Session Name:", text: $sessionName).textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: {
                 NSApp.keyWindow?.close()
+                NSApp.keyWindow?.close()
                 let sys = Python.import("sys")
                 sys.path.append("/Users/shravanp/CloudClipPython")
                 let example = Python.import("example")
