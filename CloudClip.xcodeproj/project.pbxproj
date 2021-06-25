@@ -22,6 +22,7 @@
 		DC57891226222C4C00293E86 /* SessionStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStart.swift */; };
 		DC80864B2621DDF6004CD20F /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC80864A2621DDF6004CD20F /* PythonKit */; };
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
+		DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5541826857D7C00534218 /* PreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DC53D795261E97CC0039A4FF /* BoxSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSignIn.swift; sourceTree = "<group>"; };
 		DC57891126222C4C00293E86 /* SessionStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStart.swift; sourceTree = "<group>"; };
 		DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImageExtension.swift; sourceTree = "<group>"; };
+		DCD5541826857D7C00534218 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				DC365E4C261C94B300633568 /* SessionView.swift */,
 				DC57891126222C4C00293E86 /* SessionStart.swift */,
+				DCD5541826857D7C00534218 /* PreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
 				DC57891226222C4C00293E86 /* SessionStart.swift in Sources */,
+				DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */,
 				DC53D796261E97CC0039A4FF /* BoxSignIn.swift in Sources */,
 				DC365E42261C021800633568 /* Constants.swift in Sources */,
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,

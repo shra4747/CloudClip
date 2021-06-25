@@ -14,4 +14,5 @@ extension KeyboardShortcuts.Name {
 
 class Constants {
     static let userHomeDirectory = "\(FileManager.default.homeDirectoryForCurrentUser)".replacingOccurrences(of: "file://", with: "")
+    static let cloudClipUserHomeDirectory = "\(Constants.userHomeDirectory)Library/Application Support/CloudClip"
 }

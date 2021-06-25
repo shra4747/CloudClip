@@ -18,8 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         // Import Python File to use
         let sys = Python.import("sys")
-        sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-        let googleFile = Python.import("example")
+        sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+        let googleFile = Python.import("googleDriveFile")
 
         //Authenticate Google User
         googleFile.authenticate()
@@ -33,6 +33,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
             self.captureSpecificRegion(Any?.self)
         }
+        
+        var window: NSWindow!
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 500, height: 500),
+            styleMask: [.closable, .titled, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.contentView = NSHostingView(rootView: PreferencesView())
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+        window.orderFront(self)
 
     }
 
@@ -101,21 +114,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     @objc func captureSpecificRegion(_ sender: Any?) {
         let imageCode = Int.random(in: 100000..<999999)
-        
-        let filePath = "\(Constants.userHomeDirectory)Library/Application Support/CloudClip/\(imageCode).jpg"
+                
+        let filePath = "\(Constants.cloudClipUserHomeDirectory)/\(imageCode).jpg"
         
         
         var fileDestination = URL(fileURLWithPath: filePath)
-
         let path = filePath
-
         let process = Process()
         process.launchPath = "/usr/sbin/screencapture"
         process.arguments = ["-i", path]
         process.launch()
         process.waitUntilExit()
         
-
         let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
         
         
@@ -126,7 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         })
         
         if fileName.count == 0 {
-            print("Returning an not uploading!")
+            print("Returning and not uploading!")
             return
         }
         else {
@@ -134,7 +144,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             resourceValues.name = "\(fileName).jpg"
             try? fileDestination.setResourceValues(resourceValues)
             
-            let fl = "\(Constants.userHomeDirectory)Library/Application Support/CloudClip/\(fileName).jpg"
+            
+            let fl = "\(Constants.cloudClipUserHomeDirectory)/\(fileName).jpg"
             
             let sessionState = UserDefaults.standard.value(forKey: "inSession")
             
@@ -144,26 +155,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     print("You are in a session.")
                     let id = UserDefaults.standard.value(forKey: "sessionID") as! String
                     let sys = Python.import("sys")
-                    sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-                    let example = Python.import("example")
-                    example.uploadToSession("\(id)", fl, "\(fileName).jpg")
+                    sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+                    let googleDriveFile = Python.import("googleDriveFile")
+                    googleDriveFile.uploadToSession("\(id)", fl, "\(fileName).jpg")
                 }
                 else {
                     // Not in session
                     print("You are not in a session.")
                     let sys = Python.import("sys")
-                    sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-                    let example = Python.import("example")
-                    example.upload(fl, "\(fileName).jpg")
+                    sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+                    let googleDriveFile = Python.import("googleDriveFile")
+                    googleDriveFile.upload(fl, "\(fileName).jpg")
                 }
             }
             else {
                 print("Error loading session state. ")
                 let sys = Python.import("sys")
-                sys.path.append("\(Constants.userHomeDirectory)Library/Application Support/CloudClip/CloudClipPython")
-                let example = Python.import("example")
-                example.upload(fl, "\(fileName).jpg")
+                sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+                let googleDriveFile = Python.import("googleDriveFile")
+                googleDriveFile.upload(fl, "\(fileName).jpg")
             }
+            
+            try? FileManager().removeItem(atPath: fl)
         }
     }
 }
