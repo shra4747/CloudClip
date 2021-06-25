@@ -33,20 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
             self.captureSpecificRegion(Any?.self)
         }
-        
-        var window: NSWindow!
-
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 500, height: 500),
-            styleMask: [.closable, .titled, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.isReleasedWhenClosed = false
-        window.center()
-        window.contentView = NSHostingView(rootView: PreferencesView())
-        NSApp.activate(ignoringOtherApps: true)
-        window.makeKeyAndOrderFront(nil)
-        window.orderFront(self)
-
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -75,9 +61,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 
         menu.addItem(NSMenuItem.separator())
         
+        let preferencesItem = NSMenuItem()
+        preferencesItem.title = "Preferences ⌛️"
+        preferencesItem.action = #selector(self.openPreferences(_:))
+        menu.addItem(preferencesItem)
+        
+        menu.addItem(NSMenuItem.separator())
+        
         menu.addItem(NSMenuItem(title: "Quit ☠️", action: #selector(NSApp.terminate(_:)), keyEquivalent: "q"))
         
         statusItem.menu = menu
+    }
+    
+    @objc func openPreferences(_ sender: Any?) {
+        var window: NSWindow!
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 500, height: 500),
+            styleMask: [.closable, .titled, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.contentView = NSHostingView(rootView: PreferencesView())
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+        window.orderFront(self)
     }
     
     @objc func startSession(_ sender: Any?) {
