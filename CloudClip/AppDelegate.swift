@@ -33,6 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
             self.captureSpecificRegion(Any?.self)
         }
+//        
+        self.openAllClips(Any.self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -210,5 +212,3 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
     }
 }
-
-
