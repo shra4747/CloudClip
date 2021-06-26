@@ -28,16 +28,14 @@ struct GeneralSettingsView: View {
     
     var body: some View {
         Form {
-            Button(action: {
-                 logOut()
-            }) {
-                Text("Log Out")
-            }.alert(isPresented: $successAlert) {
-                Alert(title: Text("Successfully Logged Out"), message: Text("You have successfully logged out of your account. "), dismissButton: .default(Text("Great!")))
+            VStack(alignment: .leading) {
+                Button(action: {
+                    self.logOut()
+                }) {
+                    Text("Log Out").frame(width: 200)
+                }
             }
-            .alert(isPresented: $errorAlert) {
-                Alert(title: Text("Error Logging Out"), message: Text("There was an error logging you out of your account."), dismissButton: .default(Text("Okay.")))
-            }
+            
         }
         .padding(20)
         .frame(width: 350, height: 100)
@@ -51,10 +49,18 @@ struct GeneralSettingsView: View {
         
         let signedInState = (Bool(generalSettingsFile.checkLoggedStatus())!)
         if signedInState {
-            print("Error")
+            let alert = NSAlert()
+            alert.messageText = "Error!"
+            alert.informativeText = "There was an error logging out of your account."
+            alert.icon = NSImage(named: "Error")
+            alert.beginSheetModal(for: NSApp.keyWindow!) { _ in }
         }
         else {
-            self.successAlert = true
+            let alert = NSAlert()
+            alert.messageText = "Success!"
+            alert.informativeText = "You have successfully logged out of your account!"
+            alert.icon = NSImage(named: "Success")
+            alert.beginSheetModal(for: NSApp.keyWindow!) { _ in }
         }
     }
 }

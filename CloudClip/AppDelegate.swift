@@ -61,6 +61,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 
         menu.addItem(NSMenuItem.separator())
         
+        let clipsItem = NSMenuItem()
+        clipsItem.title = "All Clips"
+        clipsItem.action = #selector(self.openAllClips(_:))
+        menu.addItem(clipsItem)
+        
         let preferencesItem = NSMenuItem()
         preferencesItem.title = "Preferences ⌛️"
         preferencesItem.action = #selector(self.openPreferences(_:))
@@ -73,19 +78,36 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         statusItem.menu = menu
     }
     
+    @objc func openAllClips(_ sender: Any?) {
+        var window: NSWindow!
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 750, height: 600),
+            styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.title = "All Clips"
+        window.contentView = NSHostingView(rootView: SessionView())
+        window.makeKeyAndOrderFront(true)
+        window.orderFront(true)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+    
     @objc func openPreferences(_ sender: Any?) {
         var window: NSWindow!
 
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 500, height: 500),
+            contentRect: NSRect(x: 0, y: 0, width: 750, height: 600),
             styleMask: [.closable, .titled, .fullSizeContentView],
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
         window.center()
+        window.title = "Preferences ⌛️"
         window.contentView = NSHostingView(rootView: PreferencesView())
+        window.makeKeyAndOrderFront(true)
+        window.orderFront(true)
         NSApp.activate(ignoringOtherApps: true)
-        window.makeKeyAndOrderFront(nil)
-        window.orderFront(self)
     }
     
     @objc func startSession(_ sender: Any?) {
