@@ -18,12 +18,16 @@
 		DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */; };
 		DC365E4D261C94B300633568 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E4C261C94B300633568 /* SessionView.swift */; };
 		DC53D793261E97BD0039A4FF /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = DC53D792261E97BD0039A4FF /* SwiftyDropbox */; };
-		DC53D796261E97CC0039A4FF /* BoxSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC53D795261E97CC0039A4FF /* BoxSignIn.swift */; };
-		DC57891226222C4C00293E86 /* SessionStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStart.swift */; };
+		DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStartView.swift */; };
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
 		DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */; };
 		DC80864B2621DDF6004CD20F /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC80864A2621DDF6004CD20F /* PythonKit */; };
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
+		DCAF399D268828D900E2E643 /* AUDIOClipped.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399A268828D900E2E643 /* AUDIOClipped.wav */; };
+		DCAF399E268828D900E2E643 /* AUDIOEndSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */; };
+		DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */; };
+		DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */; };
+		DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBC6C1A26881300007F144F /* SessionRestoreView.swift */; };
 		DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5541826857D7C00534218 /* PreferencesView.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,11 +44,15 @@
 		DC365E41261C021800633568 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExtensionSortByDate.swift; sourceTree = "<group>"; };
 		DC365E4C261C94B300633568 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
-		DC53D795261E97CC0039A4FF /* BoxSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxSignIn.swift; sourceTree = "<group>"; };
-		DC57891126222C4C00293E86 /* SessionStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStart.swift; sourceTree = "<group>"; };
+		DC57891126222C4C00293E86 /* SessionStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStartView.swift; sourceTree = "<group>"; };
 		DC65B5BF26877FD6000D7C99 /* HexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexExtension.swift; sourceTree = "<group>"; };
 		DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
 		DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImageExtension.swift; sourceTree = "<group>"; };
+		DCAF399A268828D900E2E643 /* AUDIOClipped.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOClipped.wav; sourceTree = "<group>"; };
+		DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOEndSession.wav; sourceTree = "<group>"; };
+		DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOStartSession.wav; sourceTree = "<group>"; };
+		DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundEffect.swift; sourceTree = "<group>"; };
+		DCBC6C1A26881300007F144F /* SessionRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRestoreView.swift; sourceTree = "<group>"; };
 		DCD5541826857D7C00534218 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +73,6 @@
 		DC05BEB12671B608003FF3DD /* ProviderSignIns */ = {
 			isa = PBXGroup;
 			children = (
-				DC53D795261E97CC0039A4FF /* BoxSignIn.swift */,
 			);
 			path = ProviderSignIns;
 			sourceTree = "<group>";
@@ -90,10 +97,14 @@
 			isa = PBXGroup;
 			children = (
 				DC365E1B261BE71400633568 /* AppDelegate.swift */,
+				DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */,
 				DC05BEB12671B608003FF3DD /* ProviderSignIns */,
 				DC365E48261C947800633568 /* Helpers */,
 				DC365E49261C948500633568 /* Views */,
 				DC365E1F261BE71600633568 /* Assets.xcassets */,
+				DCAF399A268828D900E2E643 /* AUDIOClipped.wav */,
+				DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */,
+				DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */,
 				DC365E30261BE90800633568 /* Main.storyboard */,
 				DC365E27261BE71600633568 /* Info.plist */,
 				DC365E28261BE71600633568 /* CloudClip.entitlements */,
@@ -114,12 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				DC365E37261BF6DB00633568 /* ImageToText.swift */,
-				DC65B5BF26877FD6000D7C99 /* HexExtension.swift */,
-				DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */,
 				DC365E3A261BFCB900633568 /* LocateFile.swift */,
 				DC365E41261C021800633568 /* Constants.swift */,
-				DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */,
-				DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */,
+				DCBC6C16268809C3007F144F /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -128,10 +136,22 @@
 			isa = PBXGroup;
 			children = (
 				DC365E4C261C94B300633568 /* SessionView.swift */,
-				DC57891126222C4C00293E86 /* SessionStart.swift */,
+				DCBC6C1A26881300007F144F /* SessionRestoreView.swift */,
+				DC57891126222C4C00293E86 /* SessionStartView.swift */,
 				DCD5541826857D7C00534218 /* PreferencesView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCBC6C16268809C3007F144F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC65B5BF26877FD6000D7C99 /* HexExtension.swift */,
+				DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */,
+				DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */,
+				DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +221,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAF399E268828D900E2E643 /* AUDIOEndSession.wav in Resources */,
 				DC365E31261BE90800633568 /* Main.storyboard in Resources */,
 				DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */,
 				DC365E20261BE71600633568 /* Assets.xcassets in Resources */,
+				DCAF399D268828D900E2E643 /* AUDIOClipped.wav in Resources */,
+				DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,14 +239,15 @@
 			files = (
 				DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */,
 				DC365E4D261C94B300633568 /* SessionView.swift in Sources */,
+				DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */,
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
-				DC57891226222C4C00293E86 /* SessionStart.swift in Sources */,
+				DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */,
 				DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */,
 				DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */,
-				DC53D796261E97CC0039A4FF /* BoxSignIn.swift in Sources */,
 				DC365E42261C021800633568 /* Constants.swift in Sources */,
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,
+				DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */,
 				DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */,
 				DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */,
 			);

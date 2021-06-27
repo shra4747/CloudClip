@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PythonKit
+import KeyboardShortcuts
 
 struct PreferencesView: View {
     var body: some View {
@@ -20,7 +21,6 @@ struct PreferencesView: View {
     }
 }
 
-
 struct GeneralSettingsView: View {
     
     @State var successAlert = false
@@ -28,14 +28,24 @@ struct GeneralSettingsView: View {
     
     var body: some View {
         Form {
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
+                HStack {
+                    Text("Screenshot Shortcut")
+                    KeyboardShortcuts.Recorder(for: .screenShotRegion)
+                }
+                
                 Button(action: {
                     self.logOut()
                 }) {
                     Text("Log Out").frame(width: 200)
                 }
+                
+                Button(action: {
+                    SoundEffects().playSound(effectType: .clipped)
+                }) {
+                    Text("Play Sound")
+                }
             }
-            
         }
         .padding(20)
         .frame(width: 350, height: 100)

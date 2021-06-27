@@ -42,7 +42,7 @@ struct SessionView: View {
                                 ForEach(sessionFolders, id: \.self) { session in
                                     HStack {
                                         Rectangle().frame(width: 1, height: 32).foregroundColor(.white).shadow(radius: 2)
-                                        Text(session.folderName).font(.custom("Avenir Next", size: 24)).padding(.trailing, 20)
+                                        Text(session.folderName).font(.custom("Avenir Next", size: 22)).padding(.trailing, 20)
                                     }.onTapGesture {
                                         selectedFolderID = session.folderID
                                     }
@@ -69,9 +69,14 @@ struct SessionView: View {
             let sys = Python.import("sys")
             sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
             let googleDriveDownlaod = Python.import("googleDriveDownload")
+            
             for session in Array(googleDriveDownlaod.iterateSessions()) {
                 sessionFolders.append(SessionFolders(folderName: "\(session["title"])", folderID: "\(session["id"])"))
             }
+            
+            let mainCloudClipFilesID = "\(googleDriveDownlaod.getCloudClipFilesFolderID())"
+            
+            sessionFolders.insert(SessionFolders(folderName: "Clips not in a Session", folderID: mainCloudClipFilesID), at: 0)
         }
     }
 }

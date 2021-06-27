@@ -33,8 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
             self.captureSpecificRegion(Any?.self)
         }
-//        
-        self.openAllClips(Any.self)
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -63,17 +62,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 
         menu.addItem(NSMenuItem.separator())
         
+        let restoreItem = NSMenuItem()
+        restoreItem.title = "Restore Session 🔁"
+        restoreItem.action = #selector(self.restoreSession(_:))
+        menu.addItem(restoreItem)
+        
         let clipsItem = NSMenuItem()
-        clipsItem.title = "All Clips"
+        clipsItem.title = "All Clips 🚀"
         clipsItem.action = #selector(self.openAllClips(_:))
         menu.addItem(clipsItem)
+        
+        menu.addItem(NSMenuItem.separator())
         
         let preferencesItem = NSMenuItem()
         preferencesItem.title = "Preferences ⌛️"
         preferencesItem.action = #selector(self.openPreferences(_:))
         menu.addItem(preferencesItem)
-        
-        menu.addItem(NSMenuItem.separator())
         
         menu.addItem(NSMenuItem(title: "Quit ☠️", action: #selector(NSApp.terminate(_:)), keyEquivalent: "q"))
         
@@ -89,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
         window.center()
-        window.title = "All Clips"
+        window.title = "All Clips 🚀"
         window.contentView = NSHostingView(rootView: SessionView())
         window.makeKeyAndOrderFront(true)
         window.orderFront(true)
@@ -121,14 +125,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             styleMask: [.titled, .fullSizeContentView],
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
+        window.title = "Start Session"
         window.center()
-        window.contentView = NSHostingView(rootView: SessionStart())
+        window.contentView = NSHostingView(rootView: SessionStartView())
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
         window.orderFront(self)
         
-        let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-
         if let button = statusItem.button {
           button.image = NSImage(named:NSImage.Name("sessionStatus"))
         }
@@ -136,79 +139,121 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     @objc func endSession(_ sender: Any?) {
         UserDefaults.standard.setValue(false, forKey: "inSession")
-        
-        let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
-        
+                
         if let button = statusItem.button {
           button.image = NSImage(named:NSImage.Name("status"))
+        }
+        
+//        guard let sessionName = UserDefaults.standard.value(forKey: "sessionNameTitle") else {
+//            return
+//        }
+        
+        var window: NSWindow!
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 0, height: 0),
+            styleMask: [.borderless],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.center()
+        window.contentView = NSHostingView(rootView: Color.clear)
+        
+
+//        let alert = NSAlert()
+//        alert.messageText = "Session Ended!"
+//        alert.informativeText = "The '\(sessionName)' session has ended!"
+//        alert.icon = NSImage(named: "EndSession")
+//        alert.beginSheetModal(for: NSApp.keyWindow!) { _ in }
+    }
+    
+    @objc func restoreSession(_ sender: Any?) {
+        var window: NSWindow!
+
+        window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 500, height: 800),
+            styleMask: [.titled, .fullSizeContentView, .closable],
+            backing: .buffered, defer: false)
+        window.isReleasedWhenClosed = false
+        window.title = "Choose which session to Restore! 🔁"
+        window.center()
+        window.contentView = NSHostingView(rootView: SessionRestoreView())
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+        window.orderFront(self)
+        
+        if let button = statusItem.button {
+          button.image = NSImage(named:NSImage.Name("sessionStatus"))
         }
     }
     
     @objc func captureSpecificRegion(_ sender: Any?) {
-        let imageCode = Int.random(in: 100000..<999999)
+        DispatchQueue.main.async {
+            let imageCode = Int.random(in: 100000..<999999)
+                    
+            let filePath = "\(Constants.cloudClipUserHomeDirectory)/\(imageCode).jpg"
+            
+            
+            var fileDestination = URL(fileURLWithPath: filePath)
+            let path = filePath
+            let process = Process()
+            process.launchPath = "/usr/sbin/screencapture"
+            process.arguments = ["-i", path]
+            process.launch()
+            process.waitUntilExit()
+            
+            let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
+            
+            SoundEffects().playSound(effectType: .clipped)
+            
+            var fileName = ""
+            
+            ImageToText().textRecognition(image: image, completion: { text in
+                fileName = text
+            })
+            
+            if fileName.count == 0 {
+                print("Returning and not uploading!")
+                return
+            }
+            else {
+                var resourceValues = URLResourceValues()
+                resourceValues.name = "\(fileName).jpg"
+                try? fileDestination.setResourceValues(resourceValues)
                 
-        let filePath = "\(Constants.cloudClipUserHomeDirectory)/\(imageCode).jpg"
-        
-        
-        var fileDestination = URL(fileURLWithPath: filePath)
-        let path = filePath
-        let process = Process()
-        process.launchPath = "/usr/sbin/screencapture"
-        process.arguments = ["-i", path]
-        process.launch()
-        process.waitUntilExit()
-        
-        let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
-        
-        
-        var fileName = ""
-        
-        ImageToText().textRecognition(image: image, completion: { text in
-            fileName = text
-        })
-        
-        if fileName.count == 0 {
-            print("Returning and not uploading!")
-            return
-        }
-        else {
-            var resourceValues = URLResourceValues()
-            resourceValues.name = "\(fileName).jpg"
-            try? fileDestination.setResourceValues(resourceValues)
-            
-            
-            let fl = "\(Constants.cloudClipUserHomeDirectory)/\(fileName).jpg"
-            
-            let sessionState = UserDefaults.standard.value(forKey: "inSession")
-            
-            if let inSession = sessionState as? Bool  {
-                if inSession == true {
-                    // In session
-                    print("You are in a session.")
-                    let id = UserDefaults.standard.value(forKey: "sessionID") as! String
-                    let sys = Python.import("sys")
-                    sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
-                    let googleDriveFile = Python.import("googleDriveFile")
-                    googleDriveFile.uploadToSession("\(id)", fl, "\(fileName).jpg")
+                
+                let fl = "\(Constants.cloudClipUserHomeDirectory)/\(fileName).jpg"
+                
+                let sessionState = UserDefaults.standard.value(forKey: "inSession")
+                
+                if let inSession = sessionState as? Bool  {
+                    if inSession == true {
+                        // In session
+                        print("You are in a session.")
+                        let id = UserDefaults.standard.value(forKey: "sessionID") as! String
+                        let sys = Python.import("sys")
+                        sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+                        let googleDriveFile = Python.import("googleDriveFile")
+                        googleDriveFile.uploadToSession("\(id)", fl, "\(fileName).jpg")
+                    }
+                    else {
+                        // Not in session
+                        print("You are not in a session.")
+                        let sys = Python.import("sys")
+                        sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+                        let googleDriveFile = Python.import("googleDriveFile")
+                        googleDriveFile.upload(fl, "\(fileName).jpg")
+                    }
                 }
                 else {
-                    // Not in session
-                    print("You are not in a session.")
+                    print("Error loading session state. ")
                     let sys = Python.import("sys")
                     sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
                     let googleDriveFile = Python.import("googleDriveFile")
                     googleDriveFile.upload(fl, "\(fileName).jpg")
                 }
+                
+                try? FileManager().removeItem(atPath: fl)
             }
-            else {
-                print("Error loading session state. ")
-                let sys = Python.import("sys")
-                sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
-                let googleDriveFile = Python.import("googleDriveFile")
-                googleDriveFile.upload(fl, "\(fileName).jpg")
-            }
-            
-            try? FileManager().removeItem(atPath: fl)
         }
     }
 }
