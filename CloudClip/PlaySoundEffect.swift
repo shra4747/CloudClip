@@ -6,20 +6,10 @@
 //
 
 import Foundation
-import AVFoundation
+import PythonKit
 
 class SoundEffects {
-    var player: AVAudioPlayer!
-
     func playSound(effectType: EffectType) {
-        let url = Bundle.main.url(forResource: effectType.rawValue, withExtension: "wav")!
-            do {
-                let player = try AVAudioPlayer(contentsOf: url)
-                player.prepareToPlay()
-                player.play()
-            } catch let error {
-                print(error.localizedDescription)
-            }
     }
     
     enum EffectType: String {

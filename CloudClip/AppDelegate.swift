@@ -15,23 +15,80 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        guard let signedInState = UserDefaults.standard.value(forKey: "userLoggedIn") as? Bool else {
+            var window: NSWindow!
 
-        // Import Python File to use
-        let sys = Python.import("sys")
-        sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
-        let googleFile = Python.import("googleDriveFile")
+            window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                backing: .buffered, defer: false)
+            window.isReleasedWhenClosed = false
+            window.center()
+            window.title = "Welcome!"
+            window.contentView = NSHostingView(rootView: WelcomeView())
+            window.makeKeyAndOrderFront(true)
+            window.orderFront(true)
+            NSApp.activate(ignoringOtherApps: true)
+            return
+        }
+        
+        if signedInState == true {
+            // Proceed normally
+            let sys = Python.import("sys")
+            sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
+            let googleFile = Python.import("googleDriveFile")
+    
+            //Authenticate Google User
+            let authenticated = "\(googleFile.authenticate())"
+            
+            if authenticated == "0" {
+                let initialized = "\(googleFile.initializeRootClipDirectory())"
+                
+                if initialized == "0" {
+                    // Proceed
+                    UserDefaults.standard.setValue(true, forKey: "userLoggedIn")
+                    //Enable Menu Item
+                    statusItem.button?.image = NSImage(named:NSImage.Name("status"))
+                    self.initiateMenuItem()
 
-        //Authenticate Google User
-        googleFile.authenticate()
-        googleFile.initializeRootClipDirectory()
+                    // Enable Shortcut to Launch Screenshot
+                    KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
+                        self.captureSpecificRegion(Any?.self)
+                    }
+                }
+                else {
+                    // Error
+                    let alert = NSAlert()
+                    alert.messageText = "Error!"
+                    alert.informativeText = "There was an error logging into your account. The app will quit, please relaunch it."
+                    alert.icon = NSImage(named: "Error")
+                    alert.beginSheetModal(for: NSApp.keyWindow!) { _ in  NSApp.terminate(Any.self)}
+                }
+            }
+        }
+        else {
+            // Launch Onboarding
+            var window: NSWindow!
 
-        //Enable Menu Item
-        statusItem.button?.image = NSImage(named:NSImage.Name("status"))
-        self.initiateMenuItem()
+            window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                backing: .buffered, defer: false)
+            window.isReleasedWhenClosed = false
+            window.center()
+            window.title = "Welcome!"
+            window.contentView = NSHostingView(rootView: WelcomeView())
+            window.makeKeyAndOrderFront(true)
+            window.orderFront(true)
+            NSApp.activate(ignoringOtherApps: true)
+            
+            statusItem.button?.image = NSImage(named:NSImage.Name("status"))
+            self.initiateMenuItem()
 
-        // Enable Shortcut to Launch Screenshot
-        KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
-            self.captureSpecificRegion(Any?.self)
+            // Enable Shortcut to Launch Screenshot
+            KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
+                self.captureSpecificRegion(Any?.self)
+            }
         }
         
     }
@@ -148,16 +205,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 //            return
 //        }
         
-        var window: NSWindow!
-
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 0, height: 0),
-            styleMask: [.borderless],
-            backing: .buffered, defer: false)
-        window.isReleasedWhenClosed = false
-        window.center()
-        window.contentView = NSHostingView(rootView: Color.clear)
-        
 
 //        let alert = NSAlert()
 //        alert.messageText = "Session Ended!"
@@ -188,7 +235,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     @objc func captureSpecificRegion(_ sender: Any?) {
         DispatchQueue.main.async {
-            let imageCode = Int.random(in: 100000..<999999)
+            let imageCode = "\(RandomAlphanumeric().randomString(length: 20))"
                     
             let filePath = "\(Constants.cloudClipUserHomeDirectory)/\(imageCode).jpg"
             
@@ -201,8 +248,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             process.launch()
             process.waitUntilExit()
             
-            let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
             
+            let image = LoadImage().loadImageFromFile(fileDestination: URL(fileURLWithPath: filePath))
+
             SoundEffects().playSound(effectType: .clipped)
             
             var fileName = ""
@@ -210,6 +258,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             ImageToText().textRecognition(image: image, completion: { text in
                 fileName = text
             })
+            
             
             if fileName.count == 0 {
                 print("Returning and not uploading!")
@@ -233,7 +282,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                         let sys = Python.import("sys")
                         sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
                         let googleDriveFile = Python.import("googleDriveFile")
-                        googleDriveFile.uploadToSession("\(id)", fl, "\(fileName).jpg")
+                        let uploadState = "\(googleDriveFile.uploadToSession("\(id)", fl, "\(fileName).jpg"))"
+                        if uploadState == "1" {
+                            // Show Error Logging in View
+                            var window: NSWindow!
+
+                            window = NSWindow(
+                                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                                backing: .buffered, defer: false)
+                            window.isReleasedWhenClosed = false
+                            window.center()
+                            window.title = "Error Logging In"
+                            window.contentView = NSHostingView(rootView: ErrorLogInView())
+                            window.makeKeyAndOrderFront(true)
+                            window.orderFront(true)
+                            NSApp.activate(ignoringOtherApps: true)
+                        }
                     }
                     else {
                         // Not in session
@@ -241,7 +306,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                         let sys = Python.import("sys")
                         sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
                         let googleDriveFile = Python.import("googleDriveFile")
-                        googleDriveFile.upload(fl, "\(fileName).jpg")
+                        let uploadState = "\(googleDriveFile.upload(fl, "\(fileName).jpg"))"
+                        if uploadState == "1" {
+                            //Show Error Logging In View
+                            var window: NSWindow!
+
+                            window = NSWindow(
+                                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                                backing: .buffered, defer: false)
+                            window.isReleasedWhenClosed = false
+                            window.center()
+                            window.title = "Error Logging In"
+                            window.contentView = NSHostingView(rootView: ErrorLogInView())
+                            window.makeKeyAndOrderFront(true)
+                            window.orderFront(true)
+                            NSApp.activate(ignoringOtherApps: true)
+                        }
                     }
                 }
                 else {
@@ -249,7 +330,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                     let sys = Python.import("sys")
                     sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
                     let googleDriveFile = Python.import("googleDriveFile")
-                    googleDriveFile.upload(fl, "\(fileName).jpg")
+                    let uploadState = "\(googleDriveFile.upload(fl, "\(fileName).jpg"))"
+                    if uploadState == "1" {
+                        //Show Error Logging In View
+                        var window: NSWindow!
+
+                        window = NSWindow(
+                            contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                            styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                            backing: .buffered, defer: false)
+                        window.isReleasedWhenClosed = false
+                        window.center()
+                        window.title = "Error Logging In"
+                        window.contentView = NSHostingView(rootView: ErrorLogInView())
+                        window.makeKeyAndOrderFront(true)
+                        window.orderFront(true)
+                        NSApp.activate(ignoringOtherApps: true)
+                    }
                 }
                 
                 try? FileManager().removeItem(atPath: fl)

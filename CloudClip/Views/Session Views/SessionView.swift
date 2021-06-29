@@ -76,7 +76,26 @@ struct SessionView: View {
             
             let mainCloudClipFilesID = "\(googleDriveDownlaod.getCloudClipFilesFolderID())"
             
-            sessionFolders.insert(SessionFolders(folderName: "Clips not in a Session", folderID: mainCloudClipFilesID), at: 0)
+            if mainCloudClipFilesID == "1" {
+                // Show error logging in view
+                NSApp.keyWindow?.close()
+                var window: NSWindow!
+
+                window = NSWindow(
+                    contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                    styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                    backing: .buffered, defer: false)
+                window.isReleasedWhenClosed = false
+                window.center()
+                window.title = "Error Logging In"
+                window.contentView = NSHostingView(rootView: ErrorLogInView())
+                window.makeKeyAndOrderFront(true)
+                window.orderFront(true)
+                NSApp.activate(ignoringOtherApps: true)
+            }
+            else {
+                sessionFolders.insert(SessionFolders(folderName: "Clips not in a Session", folderID: mainCloudClipFilesID), at: 0)
+            }
         }
     }
 }

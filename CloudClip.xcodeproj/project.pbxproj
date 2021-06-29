@@ -21,9 +21,12 @@
 		DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStartView.swift */; };
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
 		DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */; };
+		DC787D3526895C1300B7E044 /* RandomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC787D3426895C1300B7E044 /* RandomExtension.swift */; };
 		DC80864B2621DDF6004CD20F /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC80864A2621DDF6004CD20F /* PythonKit */; };
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
-		DCAF399D268828D900E2E643 /* AUDIOClipped.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399A268828D900E2E643 /* AUDIOClipped.wav */; };
+		DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6048526890CC600029DE4 /* WelcomeView.swift */; };
+		DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA604882689197700029DE4 /* ErrorLogInView.swift */; };
+		DCAF399D268828D900E2E643 /* AUDIOClipped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */; };
 		DCAF399E268828D900E2E643 /* AUDIOEndSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */; };
 		DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */; };
 		DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */; };
@@ -47,8 +50,12 @@
 		DC57891126222C4C00293E86 /* SessionStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStartView.swift; sourceTree = "<group>"; };
 		DC65B5BF26877FD6000D7C99 /* HexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexExtension.swift; sourceTree = "<group>"; };
 		DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
+		DC787D3426895C1300B7E044 /* RandomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtension.swift; sourceTree = "<group>"; };
 		DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImageExtension.swift; sourceTree = "<group>"; };
-		DCAF399A268828D900E2E643 /* AUDIOClipped.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOClipped.wav; sourceTree = "<group>"; };
+		DCA6047D2688DD6900029DE4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DCA6048526890CC600029DE4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		DCA604882689197700029DE4 /* ErrorLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogInView.swift; sourceTree = "<group>"; };
+		DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AUDIOClipped.mp3; sourceTree = "<group>"; };
 		DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOEndSession.wav; sourceTree = "<group>"; };
 		DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOStartSession.wav; sourceTree = "<group>"; };
 		DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundEffect.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			children = (
 				DC365E1A261BE71400633568 /* CloudClip */,
 				DC365E19261BE71400633568 /* Products */,
+				DCA6047C2688DD6900029DE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,7 +110,7 @@
 				DC365E48261C947800633568 /* Helpers */,
 				DC365E49261C948500633568 /* Views */,
 				DC365E1F261BE71600633568 /* Assets.xcassets */,
-				DCAF399A268828D900E2E643 /* AUDIOClipped.wav */,
+				DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */,
 				DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */,
 				DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */,
 				DC365E30261BE90800633568 /* Main.storyboard */,
@@ -127,6 +135,7 @@
 				DC365E37261BF6DB00633568 /* ImageToText.swift */,
 				DC365E3A261BFCB900633568 /* LocateFile.swift */,
 				DC365E41261C021800633568 /* Constants.swift */,
+				DC787D3426895C1300B7E044 /* RandomExtension.swift */,
 				DCBC6C16268809C3007F144F /* Extensions */,
 			);
 			path = Helpers;
@@ -135,12 +144,38 @@
 		DC365E49261C948500633568 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC365E4C261C94B300633568 /* SessionView.swift */,
-				DCBC6C1A26881300007F144F /* SessionRestoreView.swift */,
-				DC57891126222C4C00293E86 /* SessionStartView.swift */,
+				DCA6048226890C9F00029DE4 /* Onboarding Views */,
+				DCA6048326890CAC00029DE4 /* Session Views */,
 				DCD5541826857D7C00534218 /* PreferencesView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCA6047C2688DD6900029DE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCA6047D2688DD6900029DE4 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCA6048226890C9F00029DE4 /* Onboarding Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCA6048526890CC600029DE4 /* WelcomeView.swift */,
+				DCA604882689197700029DE4 /* ErrorLogInView.swift */,
+			);
+			path = "Onboarding Views";
+			sourceTree = "<group>";
+		};
+		DCA6048326890CAC00029DE4 /* Session Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC365E4C261C94B300633568 /* SessionView.swift */,
+				DCBC6C1A26881300007F144F /* SessionRestoreView.swift */,
+				DC57891126222C4C00293E86 /* SessionStartView.swift */,
+			);
+			path = "Session Views";
 			sourceTree = "<group>";
 		};
 		DCBC6C16268809C3007F144F /* Extensions */ = {
@@ -225,7 +260,7 @@
 				DC365E31261BE90800633568 /* Main.storyboard in Resources */,
 				DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */,
 				DC365E20261BE71600633568 /* Assets.xcassets in Resources */,
-				DCAF399D268828D900E2E643 /* AUDIOClipped.wav in Resources */,
+				DCAF399D268828D900E2E643 /* AUDIOClipped.mp3 in Resources */,
 				DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +284,10 @@
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,
 				DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */,
 				DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */,
+				DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */,
 				DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */,
+				DC787D3526895C1300B7E044 /* RandomExtension.swift in Sources */,
+				DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CloudClip/CloudClip.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";
@@ -390,6 +428,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -402,7 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CloudClip/CloudClip.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";
@@ -415,6 +454,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -25,12 +25,15 @@ struct ImageToText {
                 print("Error Recognizing Text")
                 return
             }
-
-            let text = observations.compactMap({
-                $0.topCandidates(1).first?.string
-            })
             
-            completion(String(text[0]))
+            if observations.isEmpty {
+                completion("\(RandomAlphanumeric().randomString(length: 20))")
+            }
+            else {
+                let text = observations.compactMap({$0.topCandidates(1).first?.string})
+                            
+                completion(String(text[0]))
+            }
         }
 
         //Process Request

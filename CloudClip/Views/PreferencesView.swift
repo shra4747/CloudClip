@@ -66,11 +66,30 @@ struct GeneralSettingsView: View {
             alert.beginSheetModal(for: NSApp.keyWindow!) { _ in }
         }
         else {
+            UserDefaults.standard.setValue(false, forKey: "userLoggedIn")
             let alert = NSAlert()
             alert.messageText = "Success!"
             alert.informativeText = "You have successfully logged out of your account!"
             alert.icon = NSImage(named: "Success")
-            alert.beginSheetModal(for: NSApp.keyWindow!) { _ in }
+            alert.beginSheetModal(for: NSApp.keyWindow!) { _ in
+                
+                NSApp.keyWindow?.close()
+                NSApp.keyWindow?.close()
+                
+                var window: NSWindow!
+
+                window = NSWindow(
+                    contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                    styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                    backing: .buffered, defer: false)
+                window.isReleasedWhenClosed = false
+                window.center()
+                window.title = "Welcome!"
+                window.contentView = NSHostingView(rootView: WelcomeView())
+                window.makeKeyAndOrderFront(true)
+                window.orderFront(true)
+                NSApp.activate(ignoringOtherApps: true)
+            }
         }
     }
 }
