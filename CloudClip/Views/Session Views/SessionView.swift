@@ -66,35 +66,33 @@ struct SessionView: View {
             }
             
         }.frame(width: 1280, height: 820, alignment: .center).padding(.top, 20).onAppear {
-            let sys = Python.import("sys")
-            sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
-            let googleDriveDownlaod = Python.import("googleDriveDownload")
-            
-            for session in Array(googleDriveDownlaod.iterateSessions()) {
-                sessionFolders.append(SessionFolders(folderName: "\(session["title"])", folderID: "\(session["id"])"))
+            SwiftRunCommands().iterateSessions(function: "iterateSessions") { sessions in
+                for session in sessions {
+                    sessionFolders.append(SessionFolders(folderName: "\(session["title"] ?? "ERR")", folderID: "\(session["id"] ?? "ERR")"))
+                }
             }
             
-            let mainCloudClipFilesID = "\(googleDriveDownlaod.getCloudClipFilesFolderID())"
-            
-            if mainCloudClipFilesID == "1" {
-                // Show error logging in view
-                NSApp.keyWindow?.close()
-                var window: NSWindow!
+            SwiftRunCommands().clipsDirectoryID(function: "getCloudClipFilesFolderID") { mainCloudClipFilesID in
+                if mainCloudClipFilesID == "1" {
+                    // Show error logging in view
+                    NSApp.keyWindow?.close()
+                    var window: NSWindow!
 
-                window = NSWindow(
-                    contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
-                    styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
-                    backing: .buffered, defer: false)
-                window.isReleasedWhenClosed = false
-                window.center()
-                window.title = "Error Logging In"
-                window.contentView = NSHostingView(rootView: ErrorLogInView())
-                window.makeKeyAndOrderFront(true)
-                window.orderFront(true)
-                NSApp.activate(ignoringOtherApps: true)
-            }
-            else {
-                sessionFolders.insert(SessionFolders(folderName: "Clips not in a Session", folderID: mainCloudClipFilesID), at: 0)
+                    window = NSWindow(
+                        contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                        styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                        backing: .buffered, defer: false)
+                    window.isReleasedWhenClosed = false
+                    window.center()
+                    window.title = "Error Logging In"
+                    window.contentView = NSHostingView(rootView: ErrorLogInView())
+                    window.makeKeyAndOrderFront(true)
+                    window.orderFront(true)
+                    NSApp.activate(ignoringOtherApps: true)
+                }
+                else {
+                    sessionFolders.insert(SessionFolders(folderName: "Clips not in a Session", folderID: mainCloudClipFilesID), at: 0)
+                }
             }
         }
     }

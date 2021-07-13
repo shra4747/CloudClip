@@ -17,6 +17,7 @@
 		DC365E42261C021800633568 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E41261C021800633568 /* Constants.swift */; };
 		DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */; };
 		DC365E4D261C94B300633568 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E4C261C94B300633568 /* SessionView.swift */; };
+		DC3A8EF0269CDB69008D7DDE /* SwiftRunCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */; };
 		DC53D793261E97BD0039A4FF /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = DC53D792261E97BD0039A4FF /* SwiftyDropbox */; };
 		DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStartView.swift */; };
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
@@ -26,9 +27,6 @@
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
 		DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6048526890CC600029DE4 /* WelcomeView.swift */; };
 		DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA604882689197700029DE4 /* ErrorLogInView.swift */; };
-		DCAF399D268828D900E2E643 /* AUDIOClipped.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */; };
-		DCAF399E268828D900E2E643 /* AUDIOEndSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */; };
-		DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */ = {isa = PBXBuildFile; fileRef = DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */; };
 		DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */; };
 		DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBC6C1A26881300007F144F /* SessionRestoreView.swift */; };
 		DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5541826857D7C00534218 /* PreferencesView.swift */; };
@@ -47,6 +45,7 @@
 		DC365E41261C021800633568 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExtensionSortByDate.swift; sourceTree = "<group>"; };
 		DC365E4C261C94B300633568 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRunCommands.swift; sourceTree = "<group>"; };
 		DC57891126222C4C00293E86 /* SessionStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStartView.swift; sourceTree = "<group>"; };
 		DC65B5BF26877FD6000D7C99 /* HexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexExtension.swift; sourceTree = "<group>"; };
 		DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
@@ -55,9 +54,6 @@
 		DCA6047D2688DD6900029DE4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DCA6048526890CC600029DE4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		DCA604882689197700029DE4 /* ErrorLogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLogInView.swift; sourceTree = "<group>"; };
-		DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AUDIOClipped.mp3; sourceTree = "<group>"; };
-		DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOEndSession.wav; sourceTree = "<group>"; };
-		DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AUDIOStartSession.wav; sourceTree = "<group>"; };
 		DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundEffect.swift; sourceTree = "<group>"; };
 		DCBC6C1A26881300007F144F /* SessionRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRestoreView.swift; sourceTree = "<group>"; };
 		DCD5541826857D7C00534218 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
@@ -105,14 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				DC365E1B261BE71400633568 /* AppDelegate.swift */,
-				DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */,
 				DC05BEB12671B608003FF3DD /* ProviderSignIns */,
 				DC365E48261C947800633568 /* Helpers */,
 				DC365E49261C948500633568 /* Views */,
 				DC365E1F261BE71600633568 /* Assets.xcassets */,
-				DCAF399A268828D900E2E643 /* AUDIOClipped.mp3 */,
-				DCAF399B268828D900E2E643 /* AUDIOEndSession.wav */,
-				DCAF399C268828D900E2E643 /* AUDIOStartSession.wav */,
 				DC365E30261BE90800633568 /* Main.storyboard */,
 				DC365E27261BE71600633568 /* Info.plist */,
 				DC365E28261BE71600633568 /* CloudClip.entitlements */,
@@ -132,11 +124,13 @@
 		DC365E48261C947800633568 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */,
 				DC365E37261BF6DB00633568 /* ImageToText.swift */,
 				DC365E3A261BFCB900633568 /* LocateFile.swift */,
 				DC365E41261C021800633568 /* Constants.swift */,
 				DC787D3426895C1300B7E044 /* RandomExtension.swift */,
 				DCBC6C16268809C3007F144F /* Extensions */,
+				DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,12 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCAF399E268828D900E2E643 /* AUDIOEndSession.wav in Resources */,
 				DC365E31261BE90800633568 /* Main.storyboard in Resources */,
 				DC365E23261BE71600633568 /* Preview Assets.xcassets in Resources */,
 				DC365E20261BE71600633568 /* Assets.xcassets in Resources */,
-				DCAF399D268828D900E2E643 /* AUDIOClipped.mp3 in Resources */,
-				DCAF399F268828D900E2E643 /* AUDIOStartSession.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +267,7 @@
 				DC365E4D261C94B300633568 /* SessionView.swift in Sources */,
 				DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */,
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
+				DC3A8EF0269CDB69008D7DDE /* SwiftRunCommands.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
 				DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */,
 				DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */,
@@ -418,6 +410,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";
 				DEVELOPMENT_TEAM = 66AVQK2TF9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -428,7 +421,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -444,6 +437,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudClip/Preview Content\"";
 				DEVELOPMENT_TEAM = 66AVQK2TF9;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -454,7 +448,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

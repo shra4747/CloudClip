@@ -19,7 +19,7 @@ struct SessionRestoreView: View {
                     .font(.custom("Avenir Next Demi Bold", size: 30)).padding()
                 Text("Tap on a session title to restore it! ")
                     .font(.custom("Avenir Next", size: 20)).padding(.leading).padding(.leading)
-            }
+            }.padding(.top, 50)
             ScrollView(.vertical, showsIndicators: false) {
                 List(restorableSessions, id: \.self) { session in
                     ZStack {
@@ -39,15 +39,15 @@ struct SessionRestoreView: View {
                             }.multilineTextAlignment(.center)
                         
                     }
-                }.frame(width: 500, height: 800).padding()
-            }
+                }.frame(width: 500, height: 800)
+            }.frame(width: 500, height: 800)
         }.onAppear {
-            let sys = Python.import("sys")
-            sys.path.append("\(Constants.cloudClipUserHomeDirectory)/CloudClipPython")
-            let googleDriveDownload = Python.import("googleDriveDownload")
-            for session in Array(googleDriveDownload.iterateSessions()) {
-                restorableSessions.append(SessionFolders(folderName: "\(session["title"])", folderID: "\(session["id"])"))
+            SwiftRunCommands().iterateSessions(function: "iterateSessions") { sessions in
+                for session in sessions {
+                    restorableSessions.append(SessionFolders(folderName: "\(session["title"] ?? "ERR")", folderID: "\(session["id"] ?? "ERR")"))
+                }
             }
+            
         }
     }
 }
