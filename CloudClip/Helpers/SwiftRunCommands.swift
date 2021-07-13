@@ -157,13 +157,32 @@ class SwiftRunCommands {
         task.waitUntilExit()
     }
     
-    func installPyDrive() {
+    func installPyDrive(completion: @escaping (pydriveinstallreturn) -> ()) {
         let process = Process()
+        let pipe = Pipe()
+
         process.launchPath = "/usr/bin/pip3"
         process.currentDirectoryPath = "/Library/Application Support/CloudClipPython"
         process.arguments = [("install"), ("PyDrive"), ("--user")]
-        process.waitUntilExit()
+        process.standardOutput = pipe
+        process.standardError = pipe
         process.launch()
+        process.waitUntilExit()
+
+
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8)!
+        if output.lowercased().contains("successfully") || output.lowercased().contains("satisfied") {
+            completion(pydriveinstallreturn(log: output, success: true))
+        }
+        else {
+            completion(pydriveinstallreturn(log: output, success: false))
+        }
+    }
+    
+    struct pydriveinstallreturn {
+        let log: String
+        let success: Bool
     }
 }
 

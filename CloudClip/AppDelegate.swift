@@ -14,8 +14,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        guard let signedInState = UserDefaults.standard.value(forKey: "userLoggedIn") as? Bool else {
+        
+        guard let userHasLaunchedApp = UserDefaults.standard.value(forKey: "userHasLaunchedApp") as? Bool else {
+            // Never Launched App
             var window: NSWindow!
 
             window = NSWindow(
@@ -24,14 +25,79 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 backing: .buffered, defer: false)
             window.isReleasedWhenClosed = false
             window.center()
-            window.title = "Welcome!"
-            window.contentView = NSHostingView(rootView: WelcomeView())
+            window.title = "Welcome to CloudClip!"
+            window.contentView = NSHostingView(rootView: FirstLaunchedView())
             window.makeKeyAndOrderFront(true)
             window.orderFront(true)
             NSApp.activate(ignoringOtherApps: true)
+            
+            self.statusItem.button?.image = NSImage(named:NSImage.Name("status"))
+            self.initiateMenuItem()
+
+            // Enable Shortcut to Launch Screenshot
+            KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
+                self.captureSpecificRegion(Any?.self)
+            }
+            return
+        }
+        
+        if userHasLaunchedApp {
+            // User Launched App, so Passing
+        }
+        else {
+            // User Has Never Launched App (might have also reset app)
+            var window: NSWindow!
+
+            window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                backing: .buffered, defer: false)
+            window.isReleasedWhenClosed = false
+            window.center()
+            window.title = "Welcome to CloudClip!"
+            window.contentView = NSHostingView(rootView: FirstLaunchedView())
+            window.makeKeyAndOrderFront(true)
+            window.orderFront(true)
+            NSApp.activate(ignoringOtherApps: true)
+            
+            self.statusItem.button?.image = NSImage(named:NSImage.Name("status"))
+            self.initiateMenuItem()
+
+            // Enable Shortcut to Launch Screenshot
+            KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
+                self.captureSpecificRegion(Any?.self)
+            }
+            return
+        }
+
+        guard let signedInState = UserDefaults.standard.value(forKey: "userLoggedIn") as? Bool else {
+            // User Has Launched App, but Error Getting Logged in State
+            var window: NSWindow!
+
+            window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                backing: .buffered, defer: false)
+            window.isReleasedWhenClosed = false
+            window.center()
+            window.title = "Error Logging In!"
+            window.contentView = NSHostingView(rootView: ErrorLogInView())
+            window.makeKeyAndOrderFront(true)
+            window.orderFront(true)
+            NSApp.activate(ignoringOtherApps: true)
+            
+            self.statusItem.button?.image = NSImage(named:NSImage.Name("status"))
+            self.initiateMenuItem()
+
+            // Enable Shortcut to Launch Screenshot
+            KeyboardShortcuts.onKeyUp(for: .screenShotRegion) {
+                self.captureSpecificRegion(Any?.self)
+            }
+            
             return
         }
         if signedInState == true {
+            // User has Launched and Signed in
             SwiftRunCommands().startup(function: "authenticate") { authenticationStatus in
                 if authenticationStatus == "0" || authenticationStatus.contains("successful") {
 
@@ -65,7 +131,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
         }
         else {
-            // Launch Onboarding
+            // User has Launched but Never signed in
             var window: NSWindow!
 
             window = NSWindow(

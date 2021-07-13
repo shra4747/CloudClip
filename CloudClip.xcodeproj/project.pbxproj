@@ -18,6 +18,13 @@
 		DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */; };
 		DC365E4D261C94B300633568 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC365E4C261C94B300633568 /* SessionView.swift */; };
 		DC3A8EF0269CDB69008D7DDE /* SwiftRunCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */; };
+		DC3A8EF9269E275E008D7DDE /* FirstLaunchWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8EF8269E275E008D7DDE /* FirstLaunchWelcomeView.swift */; };
+		DC3A8EFE269E2DD6008D7DDE /* InstallPythonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8EFD269E2DD6008D7DDE /* InstallPythonView.swift */; };
+		DC3A8F01269E3010008D7DDE /* InstallPyDriveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8F00269E3010008D7DDE /* InstallPyDriveView.swift */; };
+		DC3A8F05269E361C008D7DDE /* FirstSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8F04269E361C008D7DDE /* FirstSignInView.swift */; };
+		DC3A8F08269E36A4008D7DDE /* FirstFinalChecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8F07269E36A4008D7DDE /* FirstFinalChecksView.swift */; };
+		DC3A8F0B269E3944008D7DDE /* GetStaredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8F0A269E3944008D7DDE /* GetStaredView.swift */; };
+		DC3A8F0E269E398B008D7DDE /* FirstLaunchedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3A8F0D269E398B008D7DDE /* FirstLaunchedView.swift */; };
 		DC53D793261E97BD0039A4FF /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = DC53D792261E97BD0039A4FF /* SwiftyDropbox */; };
 		DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57891126222C4C00293E86 /* SessionStartView.swift */; };
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
@@ -45,6 +52,13 @@
 		DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExtensionSortByDate.swift; sourceTree = "<group>"; };
 		DC365E4C261C94B300633568 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRunCommands.swift; sourceTree = "<group>"; };
+		DC3A8EF8269E275E008D7DDE /* FirstLaunchWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchWelcomeView.swift; sourceTree = "<group>"; };
+		DC3A8EFD269E2DD6008D7DDE /* InstallPythonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPythonView.swift; sourceTree = "<group>"; };
+		DC3A8F00269E3010008D7DDE /* InstallPyDriveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPyDriveView.swift; sourceTree = "<group>"; };
+		DC3A8F04269E361C008D7DDE /* FirstSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignInView.swift; sourceTree = "<group>"; };
+		DC3A8F07269E36A4008D7DDE /* FirstFinalChecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstFinalChecksView.swift; sourceTree = "<group>"; };
+		DC3A8F0A269E3944008D7DDE /* GetStaredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStaredView.swift; sourceTree = "<group>"; };
+		DC3A8F0D269E398B008D7DDE /* FirstLaunchedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchedView.swift; sourceTree = "<group>"; };
 		DC57891126222C4C00293E86 /* SessionStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStartView.swift; sourceTree = "<group>"; };
 		DC65B5BF26877FD6000D7C99 /* HexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexExtension.swift; sourceTree = "<group>"; };
 		DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
@@ -143,6 +157,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DC3A8EFB269E2785008D7DDE /* First Launch Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DC3A8F0D269E398B008D7DDE /* FirstLaunchedView.swift */,
+				DC3A8EF8269E275E008D7DDE /* FirstLaunchWelcomeView.swift */,
+				DC3A8EFD269E2DD6008D7DDE /* InstallPythonView.swift */,
+				DC3A8F00269E3010008D7DDE /* InstallPyDriveView.swift */,
+				DC3A8F04269E361C008D7DDE /* FirstSignInView.swift */,
+				DC3A8F07269E36A4008D7DDE /* FirstFinalChecksView.swift */,
+				DC3A8F0A269E3944008D7DDE /* GetStaredView.swift */,
+			);
+			path = "First Launch Onboarding";
+			sourceTree = "<group>";
+		};
 		DCA6047C2688DD6900029DE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +182,7 @@
 		DCA6048226890C9F00029DE4 /* Onboarding Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC3A8EFB269E2785008D7DDE /* First Launch Onboarding */,
 				DCA6048526890CC600029DE4 /* WelcomeView.swift */,
 				DCA604882689197700029DE4 /* ErrorLogInView.swift */,
 			);
@@ -262,17 +291,24 @@
 				DC365E46261C900F00633568 /* FileExtensionSortByDate.swift in Sources */,
 				DC365E4D261C94B300633568 /* SessionView.swift in Sources */,
 				DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */,
+				DC3A8EF9269E275E008D7DDE /* FirstLaunchWelcomeView.swift in Sources */,
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
+				DC3A8F08269E36A4008D7DDE /* FirstFinalChecksView.swift in Sources */,
 				DC3A8EF0269CDB69008D7DDE /* SwiftRunCommands.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
 				DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */,
+				DC3A8F01269E3010008D7DDE /* InstallPyDriveView.swift in Sources */,
 				DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */,
 				DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */,
+				DC3A8EFE269E2DD6008D7DDE /* InstallPythonView.swift in Sources */,
 				DC365E42261C021800633568 /* Constants.swift in Sources */,
 				DC365E1C261BE71400633568 /* AppDelegate.swift in Sources */,
 				DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */,
 				DC365E3B261BFCB900633568 /* LocateFile.swift in Sources */,
+				DC3A8F0E269E398B008D7DDE /* FirstLaunchedView.swift in Sources */,
+				DC3A8F05269E361C008D7DDE /* FirstSignInView.swift in Sources */,
 				DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */,
+				DC3A8F0B269E3944008D7DDE /* GetStaredView.swift in Sources */,
 				DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */,
 				DC787D3526895C1300B7E044 /* RandomExtension.swift in Sources */,
 				DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */,
@@ -417,7 +453,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -444,7 +480,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
