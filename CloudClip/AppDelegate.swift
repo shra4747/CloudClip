@@ -8,7 +8,6 @@
 import Cocoa
 import SwiftUI
 import KeyboardShortcuts
-import PythonKit
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
@@ -279,24 +278,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                         print("You are in a session.")
                         let id = UserDefaults.standard.value(forKey: "sessionID") as! String
                         
-                        DispatchQueue.main.async {
-                            SwiftRunCommands().uploadToSession(sessionID: id, fileLocation: fl, fileName: "\(fileName).jpg") { uploadState in
-                                if uploadState == "1" {
-                                    // Show Error Logging in View
-                                    var window: NSWindow!
+                        SwiftRunCommands().uploadToSession(sessionID: id, fileLocation: fl, fileName: "\(fileName).jpg") { uploadState in
+                            if uploadState == "1" {
+                                // Show Error Logging in View
+                                var window: NSWindow!
 
-                                    window = NSWindow(
-                                        contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
-                                        styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
-                                        backing: .buffered, defer: false)
-                                    window.isReleasedWhenClosed = false
-                                    window.center()
-                                    window.title = "Error Logging In"
-                                    window.contentView = NSHostingView(rootView: ErrorLogInView())
-                                    window.makeKeyAndOrderFront(true)
-                                    window.orderFront(true)
-                                    NSApp.activate(ignoringOtherApps: true)
-                                }
+                                window = NSWindow(
+                                    contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                                    styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                                    backing: .buffered, defer: false)
+                                window.isReleasedWhenClosed = false
+                                window.center()
+                                window.title = "Error Logging In"
+                                window.contentView = NSHostingView(rootView: ErrorLogInView())
+                                window.makeKeyAndOrderFront(true)
+                                window.orderFront(true)
+                                NSApp.activate(ignoringOtherApps: true)
                             }
                         }
                     }
@@ -304,32 +301,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                         // Not in session
                         print("You are not in a session.")
                         
-                        DispatchQueue.main.async {
-                            SwiftRunCommands().upload(fileLocation: fl, fileName: "\(fileName).jpg") { uploadState in
-                                if uploadState == "1" {
-                                    //Show Error Logging In View
-                                    var window: NSWindow!
-
-                                    window = NSWindow(
-                                        contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
-                                        styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
-                                        backing: .buffered, defer: false)
-                                    window.isReleasedWhenClosed = false
-                                    window.center()
-                                    window.title = "Error Logging In"
-                                    window.contentView = NSHostingView(rootView: ErrorLogInView())
-                                    window.makeKeyAndOrderFront(true)
-                                    window.orderFront(true)
-                                    NSApp.activate(ignoringOtherApps: true)
-                                }
-                            }
-                        }
-                    }
-                }
-                else {
-                    print("Error loading session state. ")
-                    
-                    DispatchQueue.main.async {
                         SwiftRunCommands().upload(fileLocation: fl, fileName: "\(fileName).jpg") { uploadState in
                             if uploadState == "1" {
                                 //Show Error Logging In View
@@ -347,6 +318,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                                 window.orderFront(true)
                                 NSApp.activate(ignoringOtherApps: true)
                             }
+                        }
+                    }
+                }
+                else {
+                    print("Error loading session state. ")
+                    
+                    SwiftRunCommands().upload(fileLocation: fl, fileName: "\(fileName).jpg") { uploadState in
+                        if uploadState == "1" {
+                            //Show Error Logging In View
+                            var window: NSWindow!
+
+                            window = NSWindow(
+                                contentRect: NSRect(x: 0, y: 0, width: 1000, height: 700),
+                                styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
+                                backing: .buffered, defer: false)
+                            window.isReleasedWhenClosed = false
+                            window.center()
+                            window.title = "Error Logging In"
+                            window.contentView = NSHostingView(rootView: ErrorLogInView())
+                            window.makeKeyAndOrderFront(true)
+                            window.orderFront(true)
+                            NSApp.activate(ignoringOtherApps: true)
                         }
                     }
                 }

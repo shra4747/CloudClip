@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PythonKit
 
 struct ErrorLogInView: View {
     var body: some View {

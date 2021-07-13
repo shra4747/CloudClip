@@ -23,7 +23,6 @@
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
 		DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */; };
 		DC787D3526895C1300B7E044 /* RandomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC787D3426895C1300B7E044 /* RandomExtension.swift */; };
-		DC80864B2621DDF6004CD20F /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC80864A2621DDF6004CD20F /* PythonKit */; };
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
 		DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6048526890CC600029DE4 /* WelcomeView.swift */; };
 		DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA604882689197700029DE4 /* ErrorLogInView.swift */; };
@@ -66,7 +65,6 @@
 			files = (
 				DC365E3F261C020D00633568 /* KeyboardShortcuts in Frameworks */,
 				DC53D793261E97BD0039A4FF /* SwiftyDropbox in Frameworks */,
-				DC80864B2621DDF6004CD20F /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +200,6 @@
 			packageProductDependencies = (
 				DC365E3E261C020D00633568 /* KeyboardShortcuts */,
 				DC53D792261E97BD0039A4FF /* SwiftyDropbox */,
-				DC80864A2621DDF6004CD20F /* PythonKit */,
 			);
 			productName = CloudClip;
 			productReference = DC365E18261BE71400633568 /* CloudClip.app */;
@@ -234,7 +231,6 @@
 			packageReferences = (
 				DC365E3D261C020D00633568 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				DC53D791261E97BD0039A4FF /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
-				DC8086492621DDF6004CD20F /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = DC365E19261BE71400633568 /* Products */;
 			projectDirPath = "";
@@ -421,7 +417,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -448,7 +444,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.shravan-prasanth.CloudClip";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -495,14 +491,6 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		DC8086492621DDF6004CD20F /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -515,11 +503,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC53D791261E97BD0039A4FF /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
 			productName = SwiftyDropbox;
-		};
-		DC80864A2621DDF6004CD20F /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DC8086492621DDF6004CD20F /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

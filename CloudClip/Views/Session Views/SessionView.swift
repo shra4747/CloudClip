@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Foundation
-import PythonKit
 import WebKit
 
 struct SessionView: View {

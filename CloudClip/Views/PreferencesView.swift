@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PythonKit
 import KeyboardShortcuts
 
 struct PreferencesView: View {

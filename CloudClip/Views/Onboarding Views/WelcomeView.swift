@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PythonKit
 
 struct WelcomeView: View {
     var body: some View {
