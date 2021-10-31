@@ -17,6 +17,7 @@ struct FirstSignInView: View {
                 Image("lighthouse")
                 Button(action: {
                     SwiftRunCommands().startup(function: "authenticate") { authenticationStatus in
+                        
                         if authenticationStatus == "0" || authenticationStatus.contains("successful") {
                             
                             SwiftRunCommands().startup(function: "initializeRootClipDirectory") { initializationStatus in
@@ -42,6 +43,9 @@ struct FirstSignInView: View {
                             }
                         }
                         else {
+                            print("\n")
+                            print(authenticationStatus)
+                            print("\n")
                             fatalError("Error Logging In")
                         }
                     }

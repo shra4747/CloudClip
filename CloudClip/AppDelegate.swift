@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.variableLength)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
         guard let userHasLaunchedApp = UserDefaults.standard.value(forKey: "userHasLaunchedApp") as? Bool else {
             // Never Launched App
             var window: NSWindow!
@@ -40,9 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
             return
         }
-        
+
         if userHasLaunchedApp {
             // User Launched App, so Passing
+            print("Launched")
         }
         else {
             // User Has Never Launched App (might have also reset app)
@@ -55,7 +55,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             window.isReleasedWhenClosed = false
             window.center()
             window.title = "Welcome to CloudClip!"
-            window.contentView = NSHostingView(rootView: FirstLaunchedView())
+            @State var proceed = 0
+            window.contentView = NSHostingView(rootView: ErrorLogInView())
             window.makeKeyAndOrderFront(true)
             window.orderFront(true)
             NSApp.activate(ignoringOtherApps: true)
@@ -69,8 +70,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
             return
         }
-
+        
         guard let signedInState = UserDefaults.standard.value(forKey: "userLoggedIn") as? Bool else {
+            print("sign in no")
+
             // User Has Launched App, but Error Getting Logged in State
             var window: NSWindow!
 
@@ -97,6 +100,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             return
         }
         if signedInState == true {
+            print("true")
+
             // User has Launched and Signed in
             SwiftRunCommands().startup(function: "authenticate") { authenticationStatus in
                 if authenticationStatus == "0" || authenticationStatus.contains("successful") {
@@ -154,7 +159,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 self.captureSpecificRegion(Any?.self)
             }
         }
-        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -209,15 +213,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         var window: NSWindow!
 
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 750, height: 600),
+            contentRect: NSRect(x: 0, y: 0, width: 650, height: 500),
             styleMask: [.closable, .titled, .fullSizeContentView, .miniaturizable, .resizable],
             backing: .buffered, defer: false)
         window.isReleasedWhenClosed = false
-        window.center()
         window.title = "All Clips 🚀"
         window.contentView = NSHostingView(rootView: SessionView())
         window.makeKeyAndOrderFront(true)
         window.orderFront(true)
+        window.center()
         NSApp.activate(ignoringOtherApps: true)
     }
     

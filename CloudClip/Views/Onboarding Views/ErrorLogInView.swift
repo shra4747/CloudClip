@@ -12,8 +12,8 @@ struct ErrorLogInView: View {
         ZStack {
             Rectangle().frame(width: 1000, height: 700).foregroundColor(.white)
             VStack(spacing: 18) {
-                Image("enverror")
-                Text("There was an error accessing your account. Please sign back in. ").font(.custom("Avenir Next", size: 35)).multilineTextAlignment(.center)
+                Image("apartments")
+                Text("Welcome to CloudClip!").font(.custom("Avenir Next", size: 35)).multilineTextAlignment(.center)
                 Button(action: {
                     SwiftRunCommands().startup(function: "authenticate") { authenticationStatus in
                         if authenticationStatus == "0" || authenticationStatus.contains("successful") {

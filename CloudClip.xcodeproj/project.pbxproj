@@ -30,12 +30,14 @@
 		DC65B5C026877FD6000D7C99 /* HexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5BF26877FD6000D7C99 /* HexExtension.swift */; };
 		DC65B5C32687889D000D7C99 /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */; };
 		DC787D3526895C1300B7E044 /* RandomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC787D3426895C1300B7E044 /* RandomExtension.swift */; };
+		DC93A16427246A3B00E0E702 /* ActivityIndicatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC93A16327246A3B00E0E702 /* ActivityIndicatorExtension.swift */; };
 		DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */; };
 		DCA6048626890CC600029DE4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6048526890CC600029DE4 /* WelcomeView.swift */; };
 		DCA604892689197700029DE4 /* ErrorLogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA604882689197700029DE4 /* ErrorLogInView.swift */; };
 		DCAF39A22688291A00E2E643 /* PlaySoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */; };
 		DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBC6C1A26881300007F144F /* SessionRestoreView.swift */; };
 		DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5541826857D7C00534218 /* PreferencesView.swift */; };
+		DCFF143F271BCC1600FA23BD /* ArrayChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFF143E271BCC1600FA23BD /* ArrayChunker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,7 @@
 		DC65B5BF26877FD6000D7C99 /* HexExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexExtension.swift; sourceTree = "<group>"; };
 		DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
 		DC787D3426895C1300B7E044 /* RandomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomExtension.swift; sourceTree = "<group>"; };
+		DC93A16327246A3B00E0E702 /* ActivityIndicatorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorExtension.swift; sourceTree = "<group>"; };
 		DC98531E261C9AAE000626DF /* ResizeImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImageExtension.swift; sourceTree = "<group>"; };
 		DCA6047D2688DD6900029DE4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DCA6048526890CC600029DE4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		DCAF39A12688291A00E2E643 /* PlaySoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundEffect.swift; sourceTree = "<group>"; };
 		DCBC6C1A26881300007F144F /* SessionRestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRestoreView.swift; sourceTree = "<group>"; };
 		DCD5541826857D7C00534218 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		DCFF143E271BCC1600FA23BD /* ArrayChunker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayChunker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 				DC787D3426895C1300B7E044 /* RandomExtension.swift */,
 				DCBC6C16268809C3007F144F /* Extensions */,
 				DC3A8EEF269CDB69008D7DDE /* SwiftRunCommands.swift */,
+				DCFF143E271BCC1600FA23BD /* ArrayChunker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 		DCBC6C16268809C3007F144F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DC93A16327246A3B00E0E702 /* ActivityIndicatorExtension.swift */,
 				DC65B5BF26877FD6000D7C99 /* HexExtension.swift */,
 				DC365E45261C900F00633568 /* FileExtensionSortByDate.swift */,
 				DC65B5C22687889D000D7C99 /* RoundedCornerExtension.swift */,
@@ -292,10 +298,12 @@
 				DC365E4D261C94B300633568 /* SessionView.swift in Sources */,
 				DCBC6C1B26881300007F144F /* SessionRestoreView.swift in Sources */,
 				DC3A8EF9269E275E008D7DDE /* FirstLaunchWelcomeView.swift in Sources */,
+				DC93A16427246A3B00E0E702 /* ActivityIndicatorExtension.swift in Sources */,
 				DC98531F261C9AAE000626DF /* ResizeImageExtension.swift in Sources */,
 				DC3A8F08269E36A4008D7DDE /* FirstFinalChecksView.swift in Sources */,
 				DC3A8EF0269CDB69008D7DDE /* SwiftRunCommands.swift in Sources */,
 				DC365E38261BF6DB00633568 /* ImageToText.swift in Sources */,
+				DCFF143F271BCC1600FA23BD /* ArrayChunker.swift in Sources */,
 				DC57891226222C4C00293E86 /* SessionStartView.swift in Sources */,
 				DC3A8F01269E3010008D7DDE /* InstallPyDriveView.swift in Sources */,
 				DCD5541926857D7C00534218 /* PreferencesView.swift in Sources */,
